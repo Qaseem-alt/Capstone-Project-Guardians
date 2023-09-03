@@ -73,7 +73,7 @@ public class RetailAccountPage extends BaseSetup {
 	
 	//These are the webElemetn for @RemovePaymentCard
 	
-	@FindBy(xpath = "//button[text()='remove']")
+	@FindBy(xpath = "//button[@class= 'text-blue-800 cursor-pointer hover:underline' and text()='remove']")
 	public WebElement removeCardButtn;
 	
 	//These are the web element for @AddAddress

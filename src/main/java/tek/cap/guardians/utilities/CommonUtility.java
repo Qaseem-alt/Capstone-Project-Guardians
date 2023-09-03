@@ -172,7 +172,9 @@ public class CommonUtility extends BaseSetup{
 	        JavascriptExecutor js = ((JavascriptExecutor) getDriver());
 	        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 	    }
-	
+	    	public void refresh() {
+	    		getDriver().navigate().refresh();
+	    	}
 	
 
 }

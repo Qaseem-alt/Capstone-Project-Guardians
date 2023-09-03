@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		  
-		tags = "@CleanUp",
+		tags = "@Smoke",
 		features = ("classpath:features"),
 		glue="tek.cap.guardians",
 		dryRun = false,
@@ -20,6 +20,6 @@ import io.cucumber.junit.CucumberOptions;
 		snippets = CAMELCASE,
 		monochrome = true)
 
-public class TestRunner {
+public class SmokeRunner {
 	
 }

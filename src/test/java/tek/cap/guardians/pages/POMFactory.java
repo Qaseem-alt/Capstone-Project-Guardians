@@ -36,6 +36,7 @@ public class POMFactory extends BaseSetup{
 		public RetailOrderPage orderPage() {
 			return this.orderPage;
 		}
+		
 	}
 	
 	//The above Step will repeat for each page of the Application UI.

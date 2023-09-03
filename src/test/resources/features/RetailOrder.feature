@@ -1,4 +1,4 @@
-@SmokeOrder
+@Regression
 Feature: Retail Order Page
 
 Background: User is on retail website home page
@@ -82,14 +82,17 @@ Background: User is on retail website home page
     Then a review message should be displayed 'Your review was added successfully'
     
     
-    @CleanUp
-    Scenario: Clean all address and payment Method
-    Given user cklick on account Link
-    Then User click on remove option of Address section
-    When User Slecte the card to remove
-		And User click on Remove option of the card
-		Then Payment Details should be removed
-    
+
+	@CleanUp
+	Scenario: User clean Card and address
+	Given user cklick on account Link 
+	When User Slecte the card to remove
+	And User click on Remove option of the card
+	Then Payment Details should be removed
+	And User refresh the pageA
+	And User click on remove option of Address section
+  And User refresh the pageb
+  Then User click on Orders section
     
     
     
