@@ -1,4 +1,4 @@
-@SmokeAccount
+@Smoke
 Feature: Retail Account Page
 
 Background: User is sgined in at Retail account
@@ -40,7 +40,7 @@ And user click on update your card button
 Then a message should be displayed 'Payment Method updated Successfully'
 
  
-@RemovePaymentCard
+@RemovePaymentCard 
 Scenario: Verify User can Remove Debit or Cridit card
 When User Slecte the card to remove
 And User click on Remove option of the card
@@ -65,7 +65,7 @@ Scenario: Verify User can edit an Address added on account
     And User click update Your Address button
     Then A massege Should be displayed 'Address Updated Successfully'
 
-@RemoveExistAddress
+@RemoveExistAddress 
 Scenario: Verify User can remove Address from Account
     And User click on remove option of Address section
     Then Address details should be removed

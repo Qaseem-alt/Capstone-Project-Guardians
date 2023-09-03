@@ -78,7 +78,7 @@
 				<configuration>
 					<includes>*/TestRunner.java</includes>
 					<testFailureIgnore>true</testFailureIgnore>
-				</configuration>
+				</configuration> 
 			</plugin>
 			<plugin>
 				<groupId>net.masterthought</groupId>

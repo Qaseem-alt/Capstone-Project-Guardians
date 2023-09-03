@@ -1,4 +1,4 @@
-@SmokeSignIn
+
 Feature: Sign in Feature
 ​
 Background: Retail Website Sign in
@@ -20,7 +20,7 @@ Scenario: Verify user can create an account into Retail Website
 		
 		Examples: 
     | name | email | password | confirmPassword |
-    | student| Qaseem12 | Tek_4321 | Tek_4321 |
+    | fake| Qaseem12 | Tek_4321 | Tek_4321 |
     
     
     

@@ -271,7 +271,17 @@ public class RetailOrderSteps extends CommonUtility{
 		Assert.assertEquals(RSuccessMssg, factory.orderPage().ReviewAddedSuccessMssg.getText());
 		logger.info("Review Added Successfully");
 	}
-	
+	@Then("User refresh the pageA")
+	public void userRefreshThePageA() {
+	    refresh();
+	    logger.info("User refreshed the page");
+	}
+	@Then("User refresh the pageb")
+	public void userRefreshThePageb() {
+	    refresh();
+	    logger.info("User refreshed the page");
+	}
+
 	
 }
 
