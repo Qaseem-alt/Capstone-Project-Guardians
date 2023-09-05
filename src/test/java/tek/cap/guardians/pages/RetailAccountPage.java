@@ -56,16 +56,16 @@ public class RetailAccountPage extends BaseSetup {
 	// This is the web Elements for @UpdatePaymentInfo
 	
 	
-	@FindBy(xpath ="//img[@class='w-full undefined']")
+	@FindBy(xpath ="//img[@src='/images/master_card.png' and @class='w-full undefined' and @alt='Master Card']")
 	public WebElement CardIcon;
 	
-	@FindBy(xpath = "//button[text()='Edit']")
+	@FindBy(xpath = "//button[@class='text-blue-800 cursor-pointer hover:underline' and text()='Edit']")
 	public WebElement CardEditBttn;
 	
 	@FindBy(xpath = "//h1[@class='account__payment-new-title']")
 	public WebElement UpdateCardWindow;
 	
-	@FindBy(id ="paymentSubmitBtn")
+	@FindBy(id = "paymentSubmitBtn")
 	public WebElement updateCardBttn;
 	
 	@FindBy(xpath = "//div[text()='Payment Method updated Successfully']")
@@ -77,7 +77,7 @@ public class RetailAccountPage extends BaseSetup {
 	public WebElement removeCardButtn;
 	
 	//These are the web element for @AddAddress
-	@FindBy(xpath ="//p[ text()='Add Address']")
+	@FindBy(xpath = "//p[ text()='Add Address']")
 	public WebElement AddAddressIcon;
 	
 	@FindBy(xpath = "//h1[ text()='Add A New Address']")
@@ -101,7 +101,7 @@ public class RetailAccountPage extends BaseSetup {
 	@FindBy(id = "cityInput")
 	public WebElement cityInputFeild;
 	
-	@FindBy(xpath ="//select[@name='state']")
+	@FindBy(xpath = "//select[@name='state']")
 	public WebElement stateDropDown;
 	
 	@FindBy(id = "zipCodeInput")
@@ -110,7 +110,7 @@ public class RetailAccountPage extends BaseSetup {
 	@FindBy(id = "addressBtn")
 	public WebElement AddYourAddressBttn;
 	
-	@FindBy(xpath ="//div[text()='Address Added Successfully']")
+	@FindBy(xpath = "//div[text()='Address Added Successfully']")
 	public WebElement AddAddressSuccessMssg;
 	
 	// These are the web Element for @UpdateAddress
@@ -121,11 +121,11 @@ public class RetailAccountPage extends BaseSetup {
 	@FindBy(id = "addressBtn")
 	public WebElement UpdateAdressBttn;
 	
-	@FindBy(xpath ="//div[text()='Address Updated Successfully']")
+	@FindBy(xpath = "//div[text()='Address Updated Successfully']")
 	public WebElement UpdateAddressSuccessMssg;
 	
 	// These are WebElements for @RemoveExistAddress
-	@FindBy(xpath ="//button[@class='account__address-btn' and text()='Remove']")
+	@FindBy(xpath = "//button[@class='account__address-btn' and text()='Remove']")
 	public WebElement AddressRemoveBttn;
 	
 	@FindBy(xpath = "//p[text()='United States']")

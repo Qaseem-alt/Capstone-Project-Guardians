@@ -20,6 +20,9 @@ import tek.cap.guardians.base.BaseSetup;
 
 public class CommonUtility extends BaseSetup{
 	
+	public WebDriverWait getWait3() {
+        return new WebDriverWait(getDriver(), Duration.ofSeconds(3));
+	}
 	 public WebDriverWait getWait() {
 	        return new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 	    }
