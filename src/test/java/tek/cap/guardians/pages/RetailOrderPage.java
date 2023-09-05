@@ -55,7 +55,7 @@ public class RetailOrderPage extends BaseSetup{
 	@FindBy(id = "proceedBtn")
 	public WebElement ProceedToCheckoutBttn;
 	
-	@FindBy(id="addAddressBtn")
+	@FindBy(id = "addAddressBtn")
 	public WebElement AddNewAdressBttnPYO;
 	
 	@FindBy(id = "addPaymentBtn")

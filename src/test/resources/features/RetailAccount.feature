@@ -19,14 +19,16 @@ Examples: Name and phone values
 |Ahmmad Qaseem|2067106666|
 |Qaseem				|2067106500|
 
+
 @AddPayment
-Scenario: Verify User can Edit Debit or Cridit card
-When User click on add a paymnet method
-And user fill Debit or cridit card information
-|cardNumber|nameOnCard|expirationMonth|expirationYear|securityCode|
-|1234567891234567|Qaseem|12|2042|852|
-And User click on Add your card 
-Then A massege Should be displayed 'Payment Method added sucessfully'
+Scenario: Verify User can add a payment method
+    And User click on Add a payment method link
+    And User fill Debit or credit card information
+    |cardNumber						|nameOnCard |expirationMonth|expirationYear|securityCode|
+    |1234567891234567     | Qaseem    |12         		|2042          |852	        |
+    And User click on Add your card button
+    Then A message should be displayed a 'Payment Method added sucessfully'
+
 
 @UpdatePaymentInfo
 Scenario: Verify User can edit Debit or Criedit card
@@ -63,7 +65,7 @@ Scenario: Verify User can edit an Address added on account
     |Country			|FullName			 |PhoneNumber|Address|AptUnitOrEtc|City|State			|ZipCode|
     |United States|Qaseem Guardian|2444455256 |10433	 |secondFloor |Kent|Washington|98030  |
     And User click update Your Address button
-    Then A massege Should be displayed 'Address Updated Successfully'
+    Then A Update address massege Should be displayed 'Address Updated Successfully'
 
 @RemoveExistAddress 
 Scenario: Verify User can remove Address from Account

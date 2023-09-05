@@ -123,9 +123,22 @@ public class RetailOrderSteps extends CommonUtility{
 		click(factory.orderPage().AddPaymentBttnPYO);
 		logger.info("User added a new Payment");
 	}
+	@Then("user fill Debit or cridit card information")
+	public void userFillDebitOrCriditCardInformation(DataTable cardInfo) {
+		List<Map<String, String>> cardData = cardInfo.asMaps(String.class,String.class);
+		sendText(factory.accountPage().CardNumberInputFeild, cardData.get(0).get("cardNumber"));
+		sendText(factory.accountPage().cardNameInputFeild, cardData.get(0).get("nameOnCard"));
+		selectByVisibleText(factory.accountPage().ExpirationMuonthBttn, cardData.get(0).get("expirationMonth"));
+		selectByVisibleText(factory.accountPage().ExpirationYearBttn, cardData.get(0).get("expirationYear"));
+		sendText(factory.accountPage().SecurityCodeinputFeild, cardData.get(0).get("securityCode"));
+		logger.info("Card Information entered successfully");
+			}
+	
 	
 	@Then("User click on Add a new Address")
 	public void userClickOnAddANewAddress() {
+		refresh();
+		waitTillPresence(factory.orderPage().AddNewAdressBttnPYO);
 		waitTillClickable(factory.orderPage().AddNewAdressBttnPYO);
 		click(factory.orderPage().AddNewAdressBttnPYO);
 		logger.info("User added a new address");

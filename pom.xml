@@ -53,7 +53,7 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.11.0</version>
-		</dependency>
+		</dependency> 
 		<dependency>
 			<groupId>org.yaml</groupId>
 			<artifactId>snakeyaml</artifactId>
@@ -76,7 +76,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M7</version>
 				<configuration>
-					<includes>*/TestRunner.java</includes>
+					<includes>${runner}.java</includes>
 					<testFailureIgnore>true</testFailureIgnore>
 				</configuration> 
 			</plugin>

@@ -34,11 +34,11 @@ Background: User is on retail website home page
   	And User click on Proceed to Checkout button
   	And User click on Add Cridit or Debit Card button
     And user fill Debit or cridit card information
-		|cardNumber|nameOnCard|expirationMonth|expirationYear|securityCode|
-		|1234567891234567|Qaseem|12|2042|852|
-		And User click on Add your card 
+		|cardNumber						|nameOnCard |expirationMonth|expirationYear|securityCode|
+		|1234567891234555|Qaseem|12|2042|852|
+		And User click on Add your card button 
     And User click on Add a new Address
-    And User fill the information with below data
+		And User fill the information with below data
 		|Country			|FullName			 |PhoneNumber|Address|AptUnitOrEtc|City|State			|ZipCode|
 		|United States|QaseemGuardian|2444455647 |10433	 |fourthFloor |Kent|Washington|98032  |
 		And User click on Add Your Address button

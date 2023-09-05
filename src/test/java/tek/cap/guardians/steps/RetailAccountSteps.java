@@ -21,6 +21,8 @@ public class RetailAccountSteps extends CommonUtility {
 	// steps for @UpdateProfile
 	@Given("user cklick on account Link")
 	public void userCklickOnAccountLink() {
+		waitTillPresence(factory.accountPage().AcountOptions);
+		waitTillClickable(factory.accountPage().AcountOptions);
 		click(factory.accountPage().AcountOptions);
 		logger.info("User clicked on Account Option Link Successfully");
 	}
@@ -36,6 +38,8 @@ public class RetailAccountSteps extends CommonUtility {
 	}
 	@When("user click on update button")
 	public void userClickOnUpdateButton() {
+		waitTillPresence(factory.accountPage().ProUpdateBttn);
+		waitTillClickable(factory.accountPage().ProUpdateBttn);
 		click(factory.accountPage().ProUpdateBttn);
 		logger.info("User clicked on update button Successfully");
 	}
@@ -46,15 +50,16 @@ public class RetailAccountSteps extends CommonUtility {
 		logger.info("User Profile Updated Successdully");
 }
 	// steps for @AddPayment
-	@When("User click on add a paymnet method")
-	public void userClickOnAddAPaymnetMethod() {
+	
+	@Given("User click on Add a payment method link")
+	public void userClickOnAddAPaymentMethodLink() {
 		waitTillPresence(factory.accountPage().AddPaymentLink);
-	//	click(factory.accountPage().AddPaymentLink);
-		logger.info("User clicked on Add a payment method Successfully");
+		waitTillClickable(factory.accountPage().AddPaymentLink);
+		click(factory.accountPage().AddPaymentLink);
+		logger.info("USer click on add a payment Link");
 	}
-	@When("user fill Debit or cridit card information")
-	public void userFillDebitOrCriditCardInformation(DataTable dataTable) {
-	    //  List<Map<K,V>>,
+	@Given("User fill Debit or credit card information")
+	public void userFillDebitOrCreditCardInformation(DataTable dataTable) {
 		List<Map<String, String>> cardData = dataTable.asMaps(String.class,String.class);
 		sendText(factory.accountPage().CardNumberInputFeild, cardData.get(0).get("cardNumber"));
 		sendText(factory.accountPage().cardNameInputFeild, cardData.get(0).get("nameOnCard"));
@@ -62,42 +67,48 @@ public class RetailAccountSteps extends CommonUtility {
 		selectByVisibleText(factory.accountPage().ExpirationYearBttn, cardData.get(0).get("expirationYear"));
 		sendText(factory.accountPage().SecurityCodeinputFeild, cardData.get(0).get("securityCode"));
 		logger.info("Card Information entered successfully");
-		
-
-	}
-	@When("User click on Add your card")
-	public void userClickOnAddYourCard() {
+			}
+	@Given("User click on Add your card button")
+	public void userClickOnAddYourCardButton() {
+		waitTillPresence(factory.accountPage().addCardBttn);
 		waitTillClickable(factory.accountPage().addCardBttn);
 		click(factory.accountPage().addCardBttn);
-		logger.info("User Clicked on Add your card button Successfully");
+		
 	}
+	@Then("A message should be displayed a {string}")
+	public void aMessageShouldBeDisplayedA(String addPaymentSuccessMssg) {
+		waitTillPresence(factory.accountPage().addCardSuccessMssg);
+		Assert.assertEquals(addPaymentSuccessMssg, factory.accountPage().addCardSuccessMssg.getText());
+		refresh();
+		waitTillPresence(factory.accountPage().CardIcon);
+		Assert.assertTrue(factory.accountPage().CardIcon.isDisplayed());
+		logger.info("Payment method Added successfully");	
+		}
+	
 	@Then("A massege Should be displayed {string}")
 	public void aMassegeShouldBeDisplayed(String Expected) {
-		
-		if (Expected.contains("Payment method Added succe")) {
-		waitTillPresence(factory.accountPage().addCardSuccessMssg);
-		Assert.assertEquals(Expected, factory.accountPage().addCardSuccessMssg.getText());
-		logger.info("Payment method Added successfully");
-		
-	} else if (Expected.contains("Address Updated Succe")) {
 		waitTillPresence(factory.accountPage().UpdateAddressSuccessMssg);
 		Assert.assertEquals(Expected, factory.accountPage().UpdateAddressSuccessMssg.getText());
 		logger.info("Address Updated Successfully");
 	}
 		
 		
-	}
+	
 		
 	// this is the steps for @UpdatePaymentInfo 
 	
 	@Given("User click on edit Option of card section")
 	public void userClickOnEditOptionOfCardSection() {
+		getWait3();
+		waitTillPresence(factory.accountPage().CardIcon);
+		waitTillClickable(factory.accountPage().CardIcon);
 		click(factory.accountPage().CardIcon);
 		logger.info("User Clicked On Exited card Icon Succeessfully");
 	}
 	@Given("User click on Edit option")
 	public void userClickOnEditOption() {
 		waitTillPresence(factory.accountPage().CardEditBttn);
+		waitTillClickable(factory.accountPage().CardEditBttn);
 		click(factory.accountPage().CardEditBttn);
 		logger.info("User clicked on Card Edite Button Successfully");
 	}
@@ -108,7 +119,7 @@ public class RetailAccountSteps extends CommonUtility {
 		logger.info("Update Window Opened Successfyllu");
 	}
 	@Given("User edit information with below inforation")
-	public void userEditInformationWithBelowInforation(DataTable dataTable) {
+	public void userEditInformationWithBelowInforation(DataTable dataTable) {   
 		List<Map<String, String>> updateData = dataTable.asMaps(String.class, String.class);
 		clearTextUsingSendKeys(factory.accountPage().CardNumberInputFeild);
 		sendText(factory.accountPage().CardNumberInputFeild, updateData.get(0).get("cardNumber"));
@@ -123,6 +134,8 @@ public class RetailAccountSteps extends CommonUtility {
 
 	@Given("user click on update your card button")
 	public void userClickOnUpdateYourCardButton() {
+		waitTillPresence(factory.accountPage().updateCardBttn);
+		waitTillClickable(factory.accountPage().updateCardBttn);
 		click(factory.accountPage().updateCardBttn);
 		logger.info("User clicked on Update your Card Button Successfully");
 	}
@@ -138,20 +151,23 @@ public class RetailAccountSteps extends CommonUtility {
 	
 	@When("User Slecte the card to remove")
 	public void userSlecteTheCardToRemove() {
+		waitTillPresence(factory.accountPage().CardIcon);
 		waitTillClickable(factory.accountPage().CardIcon);
 		click(factory.accountPage().CardIcon);
 		logger.info("User clicked on Exiting card Icon Successfully");
 	}
 	@When("User click on Remove option of the card")
 	public void userClickOnRemoveOptionOfTheCard() {
+		waitTillPresence(factory.accountPage().removeCardButtn);
 		waitTillClickable(factory.accountPage().removeCardButtn);
 		click(factory.accountPage().removeCardButtn);
+		refresh();
 		logger.info("User clicked on remove button successfully");
 	}
 	@Then("Payment Details should be removed")
 	public void paymentDetailsShouldBeRemoved() {
-		waitTillPresence(factory.accountPage().addCardBttn);
-		Assert.assertEquals(true, (factory.accountPage().addCardBttn).isDisplayed());
+		waitTillPresence(factory.accountPage().AddAddressIcon);
+		waitTillClickable(factory.accountPage().AddAddressIcon);
 		logger.info("Selected Payment card removed Successfylly");
 	}
 	
@@ -161,6 +177,7 @@ public class RetailAccountSteps extends CommonUtility {
 	public void userClickOnAddAddressIcon() {
 		
 		waitTillPresence(factory.accountPage().AddAddressIcon);
+		waitTillClickable(factory.accountPage().AddAddressIcon);
 		click(factory.accountPage().AddAddressIcon);	
 		logger.info("User Clicked on Add Adress Icon successfully");
 	}
@@ -187,6 +204,8 @@ public class RetailAccountSteps extends CommonUtility {
 	}
 	@When("User click on Add Your Address button")
 	public void userClickOnAddYourAddressButton() {
+		waitTillPresence(factory.accountPage().AddYourAddressBttn);
+		waitTillClickable(factory.accountPage().AddYourAddressBttn);
 	click(factory.accountPage().AddYourAddressBttn);
 	logger.info("User clicked on Add your address button successfully");
 		 
@@ -202,12 +221,13 @@ public class RetailAccountSteps extends CommonUtility {
 	
 	@Given("User click on edit address option")
 	public void userClickOnEditAddressOption() {
+		waitTillPresence(factory.accountPage().AddressEditBttn);
 		waitTillClickable(factory.accountPage().AddressEditBttn);
 		click(factory.accountPage().AddressEditBttn);
 		logger.info("User clicked on address Edit buttom Successfully");
 	}
 	@Given("user fill new address form with below information")
-	public void userFillNewAddressFormWithBelowInformation(io.cucumber.datatable.DataTable dataTable) {
+	public void userFillNewAddressFormWithBelowInformation(DataTable dataTable) {
 		waitTillPresence(factory.accountPage().counteryDropdown);
 		List<Map<String, String>> AdressApdateinfo = dataTable.asMaps(String.class, String.class);
 		selectByVisibleText(factory.accountPage().counteryDropdown, AdressApdateinfo.get(0).get("Country"));
@@ -227,24 +247,34 @@ public class RetailAccountSteps extends CommonUtility {
 	}
 	@Given("User click update Your Address button")
 	public void userClickUpdateYourAddressButton() {
+		waitTillPresence(factory.accountPage().UpdateAdressBttn);
+		waitTillClickable(factory.accountPage().UpdateAdressBttn);
 	    	click(factory.accountPage().UpdateAdressBttn);
 	    	logger.info("User clicked on Update Your Address Successfully");
 	}
-	
+	@Then("A Update address massege Should be displayed {string}")
+	public void aUpdateAddressMassegeShouldBeDisplayed(String AdUpdateSuccessMssg) {
+		waitTillPresence(factory.accountPage().UpdateAddressSuccessMssg);
+	Assert.assertEquals(AdUpdateSuccessMssg, factory.accountPage().UpdateAddressSuccessMssg.getText());
+		logger.info("Adress updated successfully");
+	}
 	// These Steps are for @RemoveExistAddress
 	
 	@Given("User click on remove option of Address section")
 	public void userClickOnRemoveOptionOfAddressSection() {
-		waitTillPresence(factory.accountPage().AddressRemoveBttn);
+		getWait3();
+		waitTillClickable(factory.accountPage().AddressRemoveBttn);
 		click(factory.accountPage().AddressRemoveBttn);
+		refresh();
 		logger.info("Address Remove Bttn clicked successfyllu");
 		
 	}
 	
 	@Then("Address details should be removed")
 	public void addressDetailsShouldBeRemoved() throws InterruptedException {
+		waitTillPresence(factory.accountPage().AddAddressIcon);
 		waitTillClickable(factory.accountPage().AddAddressIcon);
-		Assert.assertEquals(true, (factory.accountPage().AddressRemoveBttn.isDisplayed()));
+		click(factory.accountPage().AddAddressIcon);
 		logger.info("Adress  removed Successfully");
 	}
 	
