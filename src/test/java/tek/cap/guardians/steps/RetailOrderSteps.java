@@ -2,6 +2,7 @@ package tek.cap.guardians.steps;
 
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -172,6 +173,7 @@ public class RetailOrderSteps extends CommonUtility{
 	
 	@Then("User click on first order in list")
 	public void userClickOnFirstOrderInList() {
+		waitTillPresence(factory.orderPage().OrderDetailsBttn);
 		waitTillClickable(factory.orderPage().OrderDetailsBttn);
 		click(factory.orderPage().OrderDetailsBttn);
 		logger.info("User clicked on First Order detail");
@@ -284,18 +286,88 @@ public class RetailOrderSteps extends CommonUtility{
 		Assert.assertEquals(RSuccessMssg, factory.orderPage().ReviewAddedSuccessMssg.getText());
 		logger.info("Review Added Successfully");
 	}
-	@Then("User refresh the pageA")
-	public void userRefreshThePageA() {
-	    refresh();
-	    logger.info("User refreshed the page");
+	
+	//These are the steps for @CleanUp
+	@When("User1 click on account options")
+	public void user1ClickOnAccountOptions() {
+		waitTillPresence(factory.orderPage().AcountOptions);
+		waitTillClickable(factory.orderPage().AcountOptions);
+		click(factory.orderPage().AcountOptions);
+		logger.info("User clicked on accout options successfully");
 	}
-	@Then("User refresh the pageb")
-	public void userRefreshThePageb() {
-	    refresh();
-	    logger.info("User refreshed the page");
+	@When("User1 click on Remove option of exist address")
+	public void user1ClickOnRemoveOptionOfExistAddress() {
+		waitTillPresence(factory.orderPage().AddressRemoveBttn);
+		waitTillClickable(factory.orderPage().AddressRemoveBttn);
+		click(factory.orderPage().AddressRemoveBttn);
+	}
+	@When("User refresh the pageA")
+	public void userRefreshThePageA() {
+		refresh();
+	}
+	@Then("Exist address is removed")
+	public void existAddressIsRemoved() {
+	    waitTillPresence(factory.orderPage().AddAddressIcon);
+	    waitTillClickable(factory.orderPage().AddAddressIcon);
+		logger.info("address removed");
+	//	Assert.assertFalse(null, factory.orderPage().AddressRemoveBttn.isDisplayed());
+	}
+	/*	
+		try{
+	    waitTillPresence(factory.orderPage().AddAddressIcon);
+	    waitTillClickable(factory.orderPage().AddAddressIcon);
+	    
+	    if (factory.orderPage().AddressRemoveBttn.isDisplayed()) {
+	        waitTillClickable(factory.orderPage().AddressRemoveBttn);
+	        click(factory.orderPage().AddressRemoveBttn);
+	    } else {
+	        logger.info("Address removed Successfully");
+	    }
+	} catch(NoSuchElementException e) {
+		logger.info("catch ereor" + e.getMessage());
+	}
+	}
+	*/
+	@Then("User1 click On exist card")
+	public void user1ClickOnExistCard() {
+		waitTillPresence(factory.orderPage().CardIcon);
+		waitTillClickable(factory.orderPage().CardIcon);
+		click(factory.orderPage().CardIcon);
+		logger.info("User clicked on card Ican" );
+		
+	}
+	@Then("User1 cleck on remove link on exist payment")
+	public void user1CleckOnRemoveLinkOnExistPayment() {
+		waitTillPresence(factory.orderPage().removeCardButtn);
+		waitTillClickable(factory.orderPage().removeCardButtn);
+		click(factory.orderPage().removeCardButtn);
+	
+	}
+	@Then("User refresh the page")
+	public void userRefreshThePage() {
+		refresh();
+	}
+	@Then("Payment exist pament removed")
+	public void paymentExistPamentRemoved() {
+	    waitTillPresence(factory.orderPage().AddAddressIcon);
+	    waitTillClickable(factory.orderPage().AddAddressIcon);
+		logger.info("payment removed");
+	}
+		/*
+		waitTillPresence(factory.orderPage().AddAddressIcon);
+		waitTillClickable(factory.orderPage().AddAddressIcon);
+		if(factory.orderPage().CardIcon.isDisplayed()) {
+			waitTillClickable(factory.orderPage().CardIcon);
+			click(factory.orderPage().CardIcon);
+			waitTillPresence(factory.orderPage().removeCardButtn);
+			waitTillClickable(factory.orderPage().removeCardButtn);
+			click(factory.orderPage().removeCardButtn);
+		} else {
+			logger.info("payment removed Successfully");
+		}
 	}
 
-	
+	*/
 }
 
 

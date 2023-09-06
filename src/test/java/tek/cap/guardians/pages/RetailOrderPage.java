@@ -128,14 +128,23 @@ public class RetailOrderPage extends BaseSetup{
 	public WebElement ReviewAddedSuccessMssg;
 	
 	
+	// these are the web elements for @cleanUp
+	
+	@FindBy(id = "accountLink")
+	public WebElement AcountOptions;
+	
+	@FindBy(xpath = "//p[ text()='Add Address']")
+	public WebElement AddAddressIcon;
+	
+	@FindBy(xpath = "//button[@class='account__address-btn' and text()='Remove']")
+	public WebElement AddressRemoveBttn;
 	
 	
+	@FindBy(xpath ="//img[@src='/images/master_card.png' and @class='w-full undefined' and @alt='Master Card']")
+	public WebElement CardIcon;
 	
-	
-	
-	
-	
-	
+	@FindBy(xpath = "//button[@class= 'text-blue-800 cursor-pointer hover:underline' and text()='remove']")
+	public WebElement removeCardButtn;
 	
 	
 	

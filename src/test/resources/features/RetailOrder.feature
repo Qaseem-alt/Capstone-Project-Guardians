@@ -84,15 +84,15 @@ Background: User is on retail website home page
     
 
 	@CleanUp
-	Scenario: User clean Card and address
-	Given user cklick on account Link 
-	When User Slecte the card to remove
-	And User click on Remove option of the card
-	Then Payment Details should be removed
-	And User refresh the pageA
-	And User click on remove option of Address section
-  And User refresh the pageb
-  Then User click on Orders section
+Scenario: clean Payment and address information 
+		When User1 click on account options
+		And User1 click on Remove option of exist address
+		And User refresh the pageA
+		Then Exist address is removed
+		And User1 click On exist card
+		And User1 cleck on remove link on exist payment
+		And User refresh the page 
+		And Payment exist pament removed
     
     
     
