@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		  
-		tags = "@PlaceOrder",
+		tags = "@Regression",
 		features = ("classpath:features"),
 		glue="tek.cap.guardians",
 		dryRun = false,
