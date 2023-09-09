@@ -1,4 +1,4 @@
-
+@Smoke
 Feature: Sign in Feature
 ​
 Background: Retail Website Sign in
