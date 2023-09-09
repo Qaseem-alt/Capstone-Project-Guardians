@@ -178,6 +178,8 @@ public class CommonUtility extends BaseSetup{
 	    	public void refresh() {
 	    		getDriver().navigate().refresh();
 	    	}
-	
+	public void sleep3() throws InterruptedException {
+		Thread.sleep(3000);
+	}
 
 }

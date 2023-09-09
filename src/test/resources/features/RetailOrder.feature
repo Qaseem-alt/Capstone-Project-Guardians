@@ -95,5 +95,8 @@ Scenario: clean Payment and address information
 		And Payment exist pament removed
     
     
-    
+    @Refresh
+    Scenario: Refresh the web page after run to keep code running
+    When User1 click on account options
+    Then wait for tree seconds
     

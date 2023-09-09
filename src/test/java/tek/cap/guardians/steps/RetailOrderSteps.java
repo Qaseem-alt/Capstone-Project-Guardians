@@ -1,4 +1,4 @@
-package tek.cap.guardians.steps;
+ package tek.cap.guardians.steps;
 
 import java.util.List;
 import java.util.Map;
@@ -120,6 +120,7 @@ public class RetailOrderSteps extends CommonUtility{
 	}
 	@Then("User click on Add Cridit or Debit Card button")
 	public void userClickOnAddCriditOrDebitCardButton() {
+		waitTillPresence(factory.orderPage().AddPaymentBttnPYO);
 		waitTillClickable(factory.orderPage().AddPaymentBttnPYO);
 		click(factory.orderPage().AddPaymentBttnPYO);
 		logger.info("User added a new Payment");
@@ -149,6 +150,7 @@ public class RetailOrderSteps extends CommonUtility{
 	
 	@Then("User click on Place Your Order")
 	public void userClickOnPlaceYourOrder() {
+		waitTillPresence(factory.orderPage().PlaceYourOderBttn);
 		waitTillClickable(factory.orderPage().PlaceYourOderBttn);
 		click(factory.orderPage().PlaceYourOderBttn);
 		logger.info("User clicked on Place your order successfully");
@@ -220,7 +222,10 @@ public class RetailOrderSteps extends CommonUtility{
 		
 	}
 	@Then("User click on Orders section Again")
-	public void userClickOnOrdersSectionAgain() {
+	public void userClickOnOrdersSectionAgain() throws InterruptedException {
+		sleep3();
+		waitTillClickable(factory.orderPage().UIHomePage);
+		sleep3();
 		click(factory.orderPage().UIHomePage);
 		waitTillClickable(factory.orderPage().OrdersBttnAgain);
 		click(factory.orderPage().OrdersBttnAgain);
@@ -306,7 +311,8 @@ public class RetailOrderSteps extends CommonUtility{
 		refresh();
 	}
 	@Then("Exist address is removed")
-	public void existAddressIsRemoved() {
+	public void existAddressIsRemoved() throws InterruptedException {
+		sleep3();
 	    waitTillPresence(factory.orderPage().AddAddressIcon);
 	    waitTillClickable(factory.orderPage().AddAddressIcon);
 		logger.info("address removed");
@@ -337,9 +343,10 @@ public class RetailOrderSteps extends CommonUtility{
 		
 	}
 	@Then("User1 cleck on remove link on exist payment")
-	public void user1CleckOnRemoveLinkOnExistPayment() {
+	public void user1CleckOnRemoveLinkOnExistPayment() throws InterruptedException {
 		waitTillPresence(factory.orderPage().removeCardButtn);
 		waitTillClickable(factory.orderPage().removeCardButtn);
+		sleep3();
 		click(factory.orderPage().removeCardButtn);
 	
 	}
@@ -368,6 +375,13 @@ public class RetailOrderSteps extends CommonUtility{
 	}
 
 	*/
+	@Then("wait for tree seconds")
+	public void waitForTreeSeconds() throws InterruptedException {
+		sleep3();
+		refresh();
+		sleep3();
+	}
+	
 }
 
 

@@ -10,9 +10,9 @@ import io.cucumber.junit.CucumberOptions;
 		  
 		tags = "@Regression",
 		features = ("classpath:features"),
-		glue="tek.cap.guardians",
-		dryRun = false,
-		plugin = {
+		glue="tek.cap.guardians", 
+		dryRun = false, 
+		plugin = { 
 				"pretty",
 				"html:target/htmlReports/cucumber-pretty.html",
 				"json:target/jsonReports/cucumber.json"
